@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _maxForwardSpeed = 8f;
     [SerializeField] private float _turnSpeed = 200f;
 
+    public static bool canMove = true;
+    public static bool moving = false;
+
     #endregion
 
     #region Unity Lifecycle
@@ -29,8 +32,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move(moveDirection);
-        Debug.Log("x is " + moveDirection.x);
-        Debug.Log("y is " + moveDirection.y);
+        Jump(jumpDirection);
     }
 
 
@@ -41,6 +43,11 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveDirection = context.ReadValue<Vector2>();
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        jumpDirection = context.ReadValue<float>();
     }
 
     #endregion
@@ -62,8 +69,14 @@ public class PlayerMovement : MonoBehaviour
 
         forwardSpeed = Mathf.MoveTowards(forwardSpeed, desiredSpeed, acceleration * Time.deltaTime);
         _anim.SetFloat("ForwardSpeed", forwardSpeed);
+        _anim.SetFloat("Turning", direction.x);
 
         _transform.Rotate(0, turnAmount * _turnSpeed * Time.deltaTime, 0);
+    }
+
+    private void Jump(float direction)
+    {
+        Debug.Log(direction);
     }
 
     bool IsMoveInput
@@ -82,8 +95,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Transform _transform;
     private Animator _anim;
-    private Vector2 moveDirection;
+    private float jumpDirection;
 
+    private Vector2 moveDirection;
     private float forwardSpeed;
     private float desiredSpeed;
     private const float groundAccel = 10f;
