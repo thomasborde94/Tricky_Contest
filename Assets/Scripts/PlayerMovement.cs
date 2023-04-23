@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     //[SerializeField] private float _moveSpeed = 2f;
     [SerializeField] private float _maxForwardSpeed = 8f;
     [SerializeField] private float _turnSpeed = 200f;
+    [SerializeField] private float _jumpSpeed = 3000f;
 
     public static bool canMove = true;
     public static bool moving = false;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _transform = GetComponent<Transform>();
         _anim = GetComponent<Animator>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
     void Start()
     {
@@ -33,7 +35,36 @@ public class PlayerMovement : MonoBehaviour
     {
         Move(moveDirection);
         Jump(jumpDirection);
+
+        RaycastHit hit;
+        Ray ray = new Ray(_transform.position + Vector3.up * groundRayDist * 0.5f, -Vector3.up);
+        if (Physics.Raycast(ray, out hit, groundRayDist))
+        {
+            Debug.Log(hit.distance);
+            if (!onGround && Mathf.Approximately(forwardSpeed, 0) && hit.distance <= 1.2f)
+            {
+                onGround = true;
+                _anim.SetBool("Land", true);
+                readyJump = false;
+                _anim.SetBool("ReadyJump", false);
+                Debug.Log("Passé par landStill");
+            }
+            else if (!onGround && forwardSpeed > 0)
+            {
+                onGround = true;
+                _anim.SetBool("Land", true);
+                readyJump = false;
+                _anim.SetBool("ReadyJump", false);
+                Debug.Log("passé par là");
+            }
+        }
+        else
+        {
+            onGround = false;
+        }
+        Debug.DrawRay(_transform.position + Vector3.up * groundRayDist * 0.5f, -Vector3.up * groundRayDist, Color.red);
     }
+
 
 
     #endregion
@@ -49,6 +80,8 @@ public class PlayerMovement : MonoBehaviour
     {
         jumpDirection = context.ReadValue<float>();
     }
+
+    
 
     #endregion
 
@@ -76,9 +109,37 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump(float direction)
     {
-        Debug.Log(direction);
+        if (direction > 0)
+        {
+            _anim.SetBool("ReadyJump", true);
+            readyJump = true;
+        }
+        else if (readyJump)
+        {
+            _anim.SetBool("Launch", true);
+            
+        }
     }
 
+    #endregion
+
+    #region Anim Events
+
+    public void Launch()
+    {
+        _rigidbody.AddForce(0, _jumpSpeed, 0, ForceMode.Force);
+        _anim.SetBool("Launch", false);
+        _anim.applyRootMotion = false;
+    }
+
+    public void Land()
+    {
+        _anim.SetBool("Land", false);
+        _anim.applyRootMotion = true;
+        _anim.SetBool("Launch", false);
+    }
+
+    #endregion
     bool IsMoveInput
     {
         get { return !Mathf.Approximately(moveDirection.sqrMagnitude, 0f); }
@@ -89,13 +150,18 @@ public class PlayerMovement : MonoBehaviour
         get { return !Mathf.Approximately(moveDirection.y, 0f); }
     }
 
-    #endregion
+    
 
     #region Private
 
     private Transform _transform;
     private Animator _anim;
+    private Rigidbody _rigidbody;
+
     private float jumpDirection;
+    private bool readyJump = false;
+    private bool onGround = true;
+    private float groundRayDist = 2.2f;
 
     private Vector2 moveDirection;
     private float forwardSpeed;
