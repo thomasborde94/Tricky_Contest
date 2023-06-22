@@ -1,6 +1,5 @@
 <h1> Portfolio Project: Tricky Contest</h1>
-Tricky Contest is my end of year project at Holberton School Paris. It's a game developped on Unity. The goal is the win a competition consisting of 3 mini games. But nobody said you had to play it fair, right ?
-
+<p>Tricky Contest is my end of year project at Holberton School Paris. It's a game developped on Unity. The goal is the win a competition consisting of 3 mini games. But nobody said you had to play it fair, right ?</p>
 <br>
 
 ![Main menu](https://github.com/thomasborde94/Tricky_Contest_LandingPage/blob/main/Resources/Main_menu.jpg)
