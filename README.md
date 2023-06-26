@@ -16,7 +16,7 @@ This project is a non-profit educational project. I wanted to know how far I cou
 For this project I used Unity and scripted using C#. I used assets found on the Unity Asset Store, Sketchfab, and Mixamo.
 
 # How to play
-First, you can visit my [landing page](https://thomasborde94.github.io/Tricky_Contest_LandingPage/) for the project to learn a little bit more about the game, or you can download it [here](https://drive.google.com/file/d/1MrDe6GJdSkfpDDGXmj6BuTT7am9Rw3bQ/view?usp=drive_link). Unzip the files and execute Tricky Contest.exe.
+First, you can visit my [landing page](https://thomasborde94.github.io/Tricky_Contest_LandingPage/) for the project to learn a little bit more about the game, or you can download it [here]([https://drive.google.com/file/d/1MrDe6GJdSkfpDDGXmj6BuTT7am9Rw3bQ/view?usp=drive_link](https://drive.google.com/file/d/1po4hCaetjxtOr4GZmkgFNfNSlpJzESdG/view?usp=sharing)). Unzip the files and execute Tricky Contest.exe.
 
 # Shortcuts
 Here are all the shortcuts for Tricky Contest:
