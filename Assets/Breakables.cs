@@ -30,6 +30,7 @@ public class Breakables : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // Triggers Smash when players kicks gameobject
         if (other.CompareTag("Kick"))
         {
             Smash();
@@ -37,7 +38,7 @@ public class Breakables : MonoBehaviour
         }
     }
 
-
+    /// <summary>Destroys gameobject and gives loot to player </summary>
     private void Smash()
     {
         // Instantiates particles, then destroy them

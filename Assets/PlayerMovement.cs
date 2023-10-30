@@ -285,6 +285,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // Instantiates a bullet when firing
     private void Firebullet()
     {
         Bullet newBullet = Instantiate(_bulletPrefab, _cannon.position, _cannon.rotation);
@@ -295,6 +296,7 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
+    // Coordinates all the animations
     #region Anim Events
 
     public void Launch()

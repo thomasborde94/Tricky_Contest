@@ -13,6 +13,8 @@ public class Baseball_bat : MonoBehaviour
     {
         instance = this;
     }
+
+    /// <summary>Happens when the player hits the ball with the bat</summary>
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("ball") && BaseballManager.instance._currentTimeRemaining > 0)

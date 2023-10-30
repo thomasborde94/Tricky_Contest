@@ -23,6 +23,7 @@ public class BaseballThrow : MonoBehaviour
 
     void Update()
     {
+        // Triggers anim of Throw at constant time _timeBetweenThrows
         _currentTime += Time.deltaTime;
         if (_currentTime >= _timeBetweenThrows)
         {
@@ -30,7 +31,7 @@ public class BaseballThrow : MonoBehaviour
             _currentTime = 0f;
         }
     }
-
+    /// <summary>Shoots balls at speed _ballSpeed</summary>
     public void Fireball()
     {
         Baseball_ball newBall = Instantiate(_ballPrefab, _hand.position, _empty.rotation);

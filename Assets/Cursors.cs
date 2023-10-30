@@ -48,7 +48,7 @@ public class Cursors : MonoBehaviour
     #endregion
 
     #region Private Methods
-
+    /// <summary>Displays or don't display the mouse cursor accordingly to the situation</summary>
     private void CursorUpdate()
     {
         if (/*Input.GetKeyDown(KeyCode.Escape) || */LevelManaging.instance._isPaused)

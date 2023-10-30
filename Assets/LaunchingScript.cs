@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// All the buttons of the launching scene
+/// </summary>
 public class LaunchingScript : MonoBehaviour
 {
     [SerializeField] private GameObject _trainUI;

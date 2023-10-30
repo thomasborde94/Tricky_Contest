@@ -78,7 +78,7 @@ public class LevelManaging : MonoBehaviour
         }
         UIController.instance.coinText.text = _currentCoinsVar.Value.ToString();
     }
-
+    // Happens when players pauses or unpauses the game
     public void PauseUnpause()
     {
         if (!_isPaused)
@@ -88,7 +88,7 @@ public class LevelManaging : MonoBehaviour
             _isPaused = true;
             Cursors.isInDialogue = true;
             Time.timeScale = 0f;
-            ////
+
             Cursor.visible = false;
             Cursors.cursorIsLocked = false;
         }

@@ -22,7 +22,7 @@ public class FinalScoreManager : MonoBehaviour
     {
         instance = this;
     }
-
+    /// <summary>Updates scores at the end of the shooting game</summary>
     public void UpdateShootScore()
     {
         if (!_shootUpdated.Value)
@@ -41,7 +41,7 @@ public class FinalScoreManager : MonoBehaviour
             _shootUpdated.Value = true;
         }
     }
-
+    /// <summary>Updates scores at the end of the race</summary>
     public void UpdateRaceScore()
     {
         if (!_raceUpdated.Value)
@@ -60,7 +60,7 @@ public class FinalScoreManager : MonoBehaviour
             _raceUpdated.Value = true;
         }
     }
-
+    /// <summary>Updates scores at the end of the baseball game</summary>
     public void UpdateBaseballScore()
     {
         if (!_baseballUpdated.Value)

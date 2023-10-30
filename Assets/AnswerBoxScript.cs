@@ -42,7 +42,7 @@ public class AnswerBoxScript : MonoBehaviour
     {
         ChooseAction();
     }
-
+    /// <summary>Adds the correct action to the buttons, according to the npc you're talking to</summary>
     private void ChooseAction()
     {
         if (MessageScript._messageScript == null)
@@ -274,6 +274,7 @@ public class AnswerBoxScript : MonoBehaviour
     {
         _bluePotion.Value -= 1;
         _redPotion.Value += 1;
+        _mushrooms.Value -= 1;
 
         _answerMessageFirst = true;
         _messageText.text = "You did the right choice.";

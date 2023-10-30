@@ -33,7 +33,7 @@ public class Pickups : MonoBehaviour
             _waitToBeCollected -= Time.deltaTime;
     }
     #endregion
-
+    // Adds correct object to inventory when picking up an object
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PlayerPickup") && _waitToBeCollected <= 0)

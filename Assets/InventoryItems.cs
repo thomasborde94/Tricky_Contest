@@ -78,11 +78,11 @@ public class InventoryItems : MonoBehaviour
 
     #endregion
 
+    // Displays correct icons of tea in the inventory
     private void TeaChecker()
     {
         if (_bluePotion.Value != 0)
         {
-            Debug.Log("I have more than 0 blue tea");
             emptySlots[6].sprite = _bluePotionIcon;
             _bluePotionAmount.gameObject.SetActive(true);
             _bluePotionAmount.text = _bluePotion.Value.ToString();

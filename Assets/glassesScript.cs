@@ -14,7 +14,7 @@ public class glassesScript : MonoBehaviour
         instance = this;
         _hintBox.SetActive(false);
     }
-
+    /// <summary>Allows player to pickup glasses</summary>
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("PlayerPickup"))

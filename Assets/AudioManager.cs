@@ -27,10 +27,10 @@ public class AudioManager : MonoBehaviour
         audioPlayer = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         ChooseLoop();
+        // Plays the correct music accordingly to the musicState
         if (canPlay == true)
         {
             canPlay = false;
@@ -66,7 +66,7 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
-
+    /// <summary>Changes musicState accordingly to the scene</summary>
     private void ChooseLoop()
     {
         Scene currentScene = SceneManager.GetActiveScene();

@@ -34,7 +34,9 @@ public class DataManager : MonoBehaviour
     {
         instance = this;
     }
-
+    /// <summary>
+    /// Gives every data it's default value when in Launching Scene
+    /// </summary>
     private void Start()
     {
         Scene currentScene = SceneManager.GetActiveScene();

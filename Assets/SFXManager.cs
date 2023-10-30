@@ -17,7 +17,7 @@ public class SFXManager : MonoBehaviour
     {
         instance = this;
     }
-
+    // Plays the sfxToplay
     public void PlaySFX(int sfxToplay)
     {
         _sfx[sfxToplay].Play();

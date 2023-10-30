@@ -27,7 +27,7 @@ public class PickupAmount : MonoBehaviour
 
     private void MessageDisplay()
     {
-        // Se souvient de la sprite pour les scènes suivantes
+        // Se souvient de la sprite dans l'inventaire pour les scènes suivantes
         _iconImage.sprite = InventoryItems.instance.icons[objectType];
 
         if (objectType == 1)

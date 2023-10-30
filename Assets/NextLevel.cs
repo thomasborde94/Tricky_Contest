@@ -36,6 +36,7 @@ public class NextLevel : MonoBehaviour
 
     void Update()
     {
+        // Changes scene when shooter game is finished
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
         if (sceneName == "Shotter_scene")
@@ -51,7 +52,7 @@ public class NextLevel : MonoBehaviour
                 }
             }
         }
-
+        // Changes scene when baseball game is finished
         if (sceneName == "Baseball_scene")
         {
             if (BaseballManager.instance._currentTimeRemaining <= 0)
@@ -64,7 +65,7 @@ public class NextLevel : MonoBehaviour
             }
         }
     }
-
+    // Changes scene when race is finished
     private void OnTriggerEnter(Collider other)
     {
         if (IsRace && other.CompareTag("Player"))

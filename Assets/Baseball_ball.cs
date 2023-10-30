@@ -21,13 +21,17 @@ public class Baseball_ball : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Moves the ball when shot
         Vector3 ballVelocity = transform.forward * _ballSpeed;
         Vector3 currentBallPosition = _transform.position;
         Vector3 ballPosition = currentBallPosition + ballVelocity * Time.fixedDeltaTime;
         _rigidbody.MovePosition(ballPosition);
     }
     #endregion
-
+    /// <summary>
+    /// Gives the ball its speed
+    /// </summary>
+    /// <param name="Speed">speed of the ball</param>
     public void Shoot(float Speed)
     {
         _ballSpeed = Speed;

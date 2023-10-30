@@ -21,13 +21,17 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Moves the bullet when shot
         Vector3 bulletVelocity = transform.forward * _bulletSpeed;
         Vector3 currentBulletPosition = _transform.position;
         Vector3 bulletPosition = currentBulletPosition + bulletVelocity * Time.fixedDeltaTime;
         _rigidbody.MovePosition(bulletPosition);
     }
     #endregion
-
+    /// <summary>
+    /// Gives the ball its speed
+    /// </summary>
+    /// <param name="Speed">speed of the ball</param>
     public void Shoot(float Speed)
     {
         _bulletSpeed = Speed;
